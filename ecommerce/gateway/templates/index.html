@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce Simples</title>
+</head>
+<body>
+    <h1>Catálogo de Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                {{ produto.nome }} - R$ {{ produto.preco }}
+                <a href="/adicionar/{{ produto.id }}">Adicionar ao carrinho</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Carrinho</h2>
+    <ul>
+        {% for item in carrinho %}
+            <li>{{ item.nome }} - R$ {{ item.preco }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total:</strong> R$ {{ total }}</p>
+    <a href="/pagar">Finalizar Pagamento</a>
+</body>
+</html>
