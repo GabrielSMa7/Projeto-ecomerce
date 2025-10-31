@@ -21,7 +21,9 @@ class ProdutoCatalogo(ProdutoCatalogoInterface):
         self._produtos = [
             {"id": 1, "nome": "Notebook", "preco": 3500},
             {"id": 2, "nome": "Smartphone", "preco": 1800},
-            {"id": 3, "nome": "Fone de ouvido", "preco": 250}
+            {"id": 5, "nome": "Teclado", "preco": 500},
+            {"id": 3, "nome": "Fone de ouvido", "preco": 250},
+            {"id": 4, "nome": "Mouse", "preco": 170}
         ]
 
     def listar_produtos(self):

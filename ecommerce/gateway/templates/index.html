@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>E-commerce Simples</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Catálogo de Produtos</h1>
@@ -17,9 +18,15 @@
     <h2>Carrinho</h2>
     <ul>
         {% for item in carrinho %}
-            <li>{{ item.nome }} - R$ {{ item.preco }}</li>
+            <li>
+                {{ item.nome }} - R$ {{ item.preco }}
+                <a href="/remover/{{ item.id }}">Remover</a>
+            </li>
+        {% else %}
+            <li>Carrinho vazio.</li>
         {% endfor %}
     </ul>
+
     <p><strong>Total:</strong> R$ {{ total }}</p>
     <a href="/pagar">Finalizar Pagamento</a>
 </body>

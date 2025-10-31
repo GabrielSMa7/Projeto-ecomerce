@@ -36,6 +36,14 @@ def adicionar(produto_id):
     requests.post(f"{RECOMENDACAO_URL}/events", json={"event": "cart_add", "product_id": produto_id})
     return redirect(url_for("index"))
 
+@app.route("/remover/<int:produto_id>")
+def remover(produto_id):
+    itens = requests.get(CARRINHO_URL).json()
+    produto = next((p for p in itens if p["id"] == produto_id), None)
+    if produto:
+        requests.delete(f"{CARRINHO_URL}/{produto_id}")
+    return redirect(url_for("index"))
+
 
 @app.route("/pagar")
 def finalizar():

@@ -9,7 +9,7 @@ CORS(app)
 def realizar_pagamento():
     dados = request.json
     total = dados.get("total", 0)
-    return jsonify({"mensagem": f"Pagamento-Atualizado de R${total:.2f} realizado com sucesso!!!"})
+    return jsonify({"mensagem": f"Pagamento de R${total:.2f} realizado com sucesso!!!"})
 
 if __name__ == "__main__":
     app.run(port=5003)
